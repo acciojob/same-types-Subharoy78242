@@ -1,8 +1,24 @@
 function isSameType(value1, value2) {
-  if ((Number.isNaN(value1) && Number.isNaN(value2)) || (value1 !== value1 && value2 !== value2)) {
-    return true;
-  }
-  return typeof value1 === typeof value2;
+  if (isNaN(value1) && isNaN(value2)) {
+
+return true;
+}
+	// Convert values to numbers if they are numeric strings
+
+if (!isNaN(value1)) {
+
+value1 = parseFloat(value1);
+}
+
+if (!isNaN(value2)) {
+
+value2 = parseFloat(value2);
+}
+
+// Check if the types are the same and both are not NaN
+
+return typeof value1 === typeof value2 && !isNaN(value1) && !isNaN(value2);
+
 }
 
 
